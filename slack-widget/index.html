@@ -23,15 +23,18 @@
     padding: 24px;
     position: relative;
     overflow: hidden;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
-  /* ─── Background Pattern (geometric triangular/diamond lines) ─── */
+  /* ─── Background Pattern ─── */
   .gi-slack::before {
     content: '';
     position: absolute;
     inset: 0;
     background:
-      /* Large V-shaped / chevron lines going right */
       repeating-linear-gradient(
         -25deg,
         transparent,
@@ -46,7 +49,6 @@
         rgba(255,255,255,0.12) 80px,
         rgba(255,255,255,0.12) 81px
       ),
-      /* Secondary offset lines for diamond effect */
       repeating-linear-gradient(
         -25deg,
         transparent,
@@ -61,7 +63,6 @@
         rgba(255,255,255,0.08) 160px,
         rgba(255,255,255,0.08) 161px
       ),
-      /* Faint horizontal for added depth */
       repeating-linear-gradient(
         0deg,
         transparent,
@@ -88,9 +89,7 @@
     gap: 16px;
   }
 
-  .gi-slack__info {
-    flex: 1;
-  }
+  .gi-slack__info { flex: 1; }
 
   .gi-slack__headline {
     font-family: var(--font-head);
@@ -139,14 +138,8 @@
   .gi-slack__btn:hover { opacity: 0.88; transform: translateY(-1px); }
   .gi-slack__btn:active { transform: translateY(0); }
 
-  .gi-slack__btn svg { flex-shrink: 0; opacity: 0.8; }
-
-  .gi-slack__btn span.gi-slack__btn-prefix {
-    font-weight: 400;
-  }
-  .gi-slack__btn span.gi-slack__btn-channel {
-    font-weight: 700;
-  }
+  .gi-slack__btn span.gi-slack__btn-prefix { font-weight: 400; }
+  .gi-slack__btn span.gi-slack__btn-channel { font-weight: 700; }
 
   /* ─── Responsive ─── */
   @media (max-width: 900px) {
@@ -162,7 +155,6 @@
 <div class="gi-slack">
   <div class="gi-slack__content">
 
-    <!-- Header Row -->
     <div class="gi-slack__header">
       <div class="gi-slack__info">
         <p class="gi-slack__headline">Top Community Slack Channels</p>
@@ -170,34 +162,14 @@
       </div>
     </div>
 
-    <!-- Channel Buttons -->
     <div class="gi-slack__buttons">
       <a class="gi-slack__btn" href="https://app.slack.com/client/T09NMRSPVFW/C09PEB2H5AR" target="_blank" rel="noopener noreferrer">
-        <!-- Hashtag icon -->
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="4" y1="7.5" x2="16" y2="7.5"/>
-          <line x1="4" y1="12.5" x2="16" y2="12.5"/>
-          <line x1="7.5" y1="3" x2="6" y2="17"/>
-          <line x1="13.5" y1="3" x2="12" y2="17"/>
-        </svg>
         <span><span class="gi-slack__btn-prefix">Go to </span><span class="gi-slack__btn-channel">#announcements</span></span>
       </a>
       <a class="gi-slack__btn" href="https://app.slack.com/client/T09NMRSPVFW/C09NBTB1KV1" target="_blank" rel="noopener noreferrer">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="4" y1="7.5" x2="16" y2="7.5"/>
-          <line x1="4" y1="12.5" x2="16" y2="12.5"/>
-          <line x1="7.5" y1="3" x2="6" y2="17"/>
-          <line x1="13.5" y1="3" x2="12" y2="17"/>
-        </svg>
         <span><span class="gi-slack__btn-prefix">Go to </span><span class="gi-slack__btn-channel">#growth-resources</span></span>
       </a>
       <a class="gi-slack__btn" href="https://app.slack.com/client/T09NMRSPVFW/C09NBT4QTDZ" target="_blank" rel="noopener noreferrer">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="4" y1="7.5" x2="16" y2="7.5"/>
-          <line x1="4" y1="12.5" x2="16" y2="12.5"/>
-          <line x1="7.5" y1="3" x2="6" y2="17"/>
-          <line x1="13.5" y1="3" x2="12" y2="17"/>
-        </svg>
         <span><span class="gi-slack__btn-prefix">Go to </span><span class="gi-slack__btn-channel">#general-discussion</span></span>
       </a>
     </div>
