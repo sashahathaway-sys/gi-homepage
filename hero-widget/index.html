@@ -160,31 +160,13 @@
   /* ─── Video Card ─── */
   .gi-hero__video {
     flex: 0 0 42%;
-    min-width: 420px;
+    min-width: 0;
+    width: 42%;
     border-radius: var(--radius);
     overflow: hidden;
     border: 0.5px solid #757575;
     position: relative;
     background: var(--inverted);
-  }
-
-  .gi-hero__video-close {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    width: 28px;
-    height: 28px;
-    background: rgba(0,0,0,0.6);
-    border: none;
-    color: #fff;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 10;
-    line-height: 1;
   }
 
   /* ─── Vimeo Embed ─── */
@@ -225,20 +207,22 @@
   }
 
   /* ─── Responsive ─── */
-  @media (max-width: 1100px) {
+  @media (max-width: 1200px) {
     .gi-hero { padding: 32px 40px; }
-    .gi-hero__inner { gap: 40px; }
-    .gi-hero__left { gap: 40px; }
-    .gi-hero__video { flex: 0 0 45%; min-width: 300px; }
+    .gi-hero__inner { gap: 32px; }
+    .gi-hero__left { gap: 32px; }
+    .gi-hero__video { flex: 0 0 45%; width: 45%; }
+    .gi-hero__badge-col { width: 160px; }
+    .gi-hero__crest { width: 160px; }
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 900px) {
     .gi-hero { padding: 24px 20px; }
     .gi-hero__inner { flex-direction: column; align-items: stretch; }
     .gi-hero__left { flex-direction: column; align-items: center; text-align: center; gap: 24px; }
     .gi-hero__text { align-items: center; }
     .gi-hero__actions { justify-content: center; }
-    .gi-hero__video { flex: 1 1 100%; min-width: 0; max-width: 100%; }
+    .gi-hero__video { flex: 1 1 100%; width: 100%; max-width: 100%; }
     .gi-hero__badge-col { width: 140px; }
     .gi-hero__crest { width: 140px; }
   }
@@ -284,9 +268,6 @@
 
     <!-- ── Right: Video Card ── -->
     <div class="gi-hero__video" id="gi-video-card">
-      <button class="gi-hero__video-close"
-              aria-label="Close video"
-              onclick="document.getElementById('gi-video-card').style.display='none'">&times;</button>
 
       <!-- Vimeo Embed -->
       <div class="gi-hero__vimeo-wrap">
