@@ -1,0 +1,206 @@
+<!--
+  WIDGET: Slack Channels Bar
+  Paste this entire block into Docebo Homepage Builder > Add Widget > HTML/WYSIWYG
+-->
+
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+  /* ─── Reset & Tokens ─── */
+  .gi-slack *, .gi-slack *::before, .gi-slack *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  .gi-slack {
+    --blue: #01C4F6;
+    --inverted: #0B1114;
+    --font-head: 'Cera Pro', 'Open Sans', sans-serif;
+    --font-body: 'Open Sans', sans-serif;
+    --radius: 10px;
+    --btn-radius: 6px;
+
+    font-family: var(--font-body);
+    background: linear-gradient(135deg, #5dd8f7 0%, #01C4F6 30%, #01C4F6 100%);
+    border-radius: var(--radius);
+    padding: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* ─── Background Pattern (geometric triangular/diamond lines) ─── */
+  .gi-slack::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      /* Large V-shaped / chevron lines going right */
+      repeating-linear-gradient(
+        -25deg,
+        transparent,
+        transparent 80px,
+        rgba(255,255,255,0.12) 80px,
+        rgba(255,255,255,0.12) 81px
+      ),
+      repeating-linear-gradient(
+        25deg,
+        transparent,
+        transparent 80px,
+        rgba(255,255,255,0.12) 80px,
+        rgba(255,255,255,0.12) 81px
+      ),
+      /* Secondary offset lines for diamond effect */
+      repeating-linear-gradient(
+        -25deg,
+        transparent,
+        transparent 160px,
+        rgba(255,255,255,0.08) 160px,
+        rgba(255,255,255,0.08) 161px
+      ),
+      repeating-linear-gradient(
+        25deg,
+        transparent,
+        transparent 160px,
+        rgba(255,255,255,0.08) 160px,
+        rgba(255,255,255,0.08) 161px
+      ),
+      /* Faint horizontal for added depth */
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 160px,
+        rgba(255,255,255,0.04) 160px,
+        rgba(255,255,255,0.04) 161px
+      );
+    pointer-events: none;
+  }
+
+  /* ─── Content ─── */
+  .gi-slack__content {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .gi-slack__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .gi-slack__info {
+    flex: 1;
+  }
+
+  .gi-slack__headline {
+    font-family: var(--font-head);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--inverted);
+    line-height: 1.4;
+    margin-bottom: 0;
+  }
+
+  .gi-slack__desc {
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(11,17,20,0.7);
+    line-height: 1.5;
+    margin-top: 1px;
+  }
+
+  /* ─── Channel Buttons ─── */
+  .gi-slack__buttons {
+    display: flex;
+    gap: 12px;
+  }
+
+  .gi-slack__btn {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 48px;
+    padding: 0 16px;
+    background: linear-gradient(to bottom, #32454f, #0b1114);
+    border: none;
+    border-radius: var(--btn-radius);
+    color: #ffffff;
+    font-family: var(--font-body);
+    font-size: 16px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: opacity 0.15s, transform 0.1s;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  .gi-slack__btn:hover { opacity: 0.88; transform: translateY(-1px); }
+  .gi-slack__btn:active { transform: translateY(0); }
+
+  .gi-slack__btn svg { flex-shrink: 0; opacity: 0.8; }
+
+  .gi-slack__btn span.gi-slack__btn-prefix {
+    font-weight: 400;
+  }
+  .gi-slack__btn span.gi-slack__btn-channel {
+    font-weight: 700;
+  }
+
+  /* ─── Responsive ─── */
+  @media (max-width: 900px) {
+    .gi-slack__buttons { flex-direction: column; }
+    .gi-slack__btn { width: 100%; }
+  }
+
+  @media (max-width: 600px) {
+    .gi-slack { padding: 16px 20px; }
+  }
+</style>
+
+<div class="gi-slack">
+  <div class="gi-slack__content">
+
+    <!-- Header Row -->
+    <div class="gi-slack__header">
+      <div class="gi-slack__info">
+        <p class="gi-slack__headline">Top Community Slack Channels</p>
+        <p class="gi-slack__desc">Join us on Slack for access to curated peer networks designed for thoughtful dialogue, perspective sharing, and decision pressure-testing.</p>
+      </div>
+    </div>
+
+    <!-- Channel Buttons -->
+    <div class="gi-slack__buttons">
+      <a class="gi-slack__btn" href="https://app.slack.com/client/T09NMRSPVFW/C09PEB2H5AR" target="_blank" rel="noopener noreferrer">
+        <!-- Hashtag icon -->
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="4" y1="7.5" x2="16" y2="7.5"/>
+          <line x1="4" y1="12.5" x2="16" y2="12.5"/>
+          <line x1="7.5" y1="3" x2="6" y2="17"/>
+          <line x1="13.5" y1="3" x2="12" y2="17"/>
+        </svg>
+        <span><span class="gi-slack__btn-prefix">Go to </span><span class="gi-slack__btn-channel">#announcements</span></span>
+      </a>
+      <a class="gi-slack__btn" href="https://app.slack.com/client/T09NMRSPVFW/C09NBTB1KV1" target="_blank" rel="noopener noreferrer">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="4" y1="7.5" x2="16" y2="7.5"/>
+          <line x1="4" y1="12.5" x2="16" y2="12.5"/>
+          <line x1="7.5" y1="3" x2="6" y2="17"/>
+          <line x1="13.5" y1="3" x2="12" y2="17"/>
+        </svg>
+        <span><span class="gi-slack__btn-prefix">Go to </span><span class="gi-slack__btn-channel">#growth-resources</span></span>
+      </a>
+      <a class="gi-slack__btn" href="https://app.slack.com/client/T09NMRSPVFW/C09NBT4QTDZ" target="_blank" rel="noopener noreferrer">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="4" y1="7.5" x2="16" y2="7.5"/>
+          <line x1="4" y1="12.5" x2="16" y2="12.5"/>
+          <line x1="7.5" y1="3" x2="6" y2="17"/>
+          <line x1="13.5" y1="3" x2="12" y2="17"/>
+        </svg>
+        <span><span class="gi-slack__btn-prefix">Go to </span><span class="gi-slack__btn-channel">#general-discussion</span></span>
+      </a>
+    </div>
+
+  </div>
+</div>
