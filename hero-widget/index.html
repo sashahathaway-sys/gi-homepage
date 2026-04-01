@@ -1,5 +1,5 @@
 <!--
-  WIDGET: Revenue Academy Hero Top Bar
+  WIDGET: Hero Top Bar
   Paste this entire block into Docebo Homepage Builder > Add Widget > HTML/WYSIWYG
 -->
 
@@ -7,9 +7,9 @@
 
 <style>
   /* ─── Reset & Tokens ─── */
-  .ra-hero *, .ra-hero *::before, .ra-hero *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  .gi-hero *, .gi-hero *::before, .gi-hero *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  .ra-hero {
+  .gi-hero {
     --blue: #01C4F6;
     --navy: #101E2B;
     --text: #ffffff;
@@ -31,7 +31,7 @@
   }
 
   /* ─── Layout ─── */
-  .ra-hero__inner {
+  .gi-hero__inner {
     display: flex;
     align-items: center;
     gap: 66px;
@@ -39,7 +39,7 @@
     z-index: 1;
   }
 
-  .ra-hero__left {
+  .gi-hero__left {
     display: flex;
     align-items: center;
     gap: 70px;
@@ -48,28 +48,48 @@
   }
 
   /* ─── Badge Column ─── */
-  .ra-hero__badge-col {
+  .gi-hero__badge-col {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 12px;
     flex-shrink: 0;
     width: 200px;
   }
 
-  .ra-hero__badge-img {
+  .gi-hero__badge-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 1000px;
+    padding: 4px 12px;
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--text);
+    white-space: nowrap;
+  }
+
+  .gi-hero__badge-pill svg { flex-shrink: 0; color: #ffffff; }
+
+  .gi-hero__crest {
     width: 200px;
     height: auto;
+    max-height: 258px;
     display: block;
   }
 
   /* ─── Text Column ─── */
-  .ra-hero__text {
+  .gi-hero__text {
     display: flex;
     flex-direction: column;
     gap: 8px;
   }
 
-  .ra-hero__label {
+  .gi-hero__label {
     font-family: var(--font-body);
     font-size: 14px;
     font-weight: 600;
@@ -78,7 +98,7 @@
     letter-spacing: 0.02em;
   }
 
-  .ra-hero__subhead {
+  .gi-hero__subhead {
     font-family: var(--font-head);
     font-size: 22px;
     font-weight: 700;
@@ -86,7 +106,7 @@
     line-height: 1.4;
   }
 
-  .ra-hero__title {
+  .gi-hero__title {
     font-family: var(--font-head);
     font-size: clamp(32px, 3.5vw, 48px);
     font-weight: 700;
@@ -97,14 +117,14 @@
   }
 
   /* ─── Buttons ─── */
-  .ra-hero__actions {
+  .gi-hero__actions {
     display: flex;
     gap: 12px;
     margin-top: 32px;
     flex-wrap: wrap;
   }
 
-  .ra-hero__btn {
+  .gi-hero__btn {
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -120,27 +140,28 @@
     transition: opacity 0.15s, transform 0.1s;
     white-space: nowrap;
   }
-  .ra-hero__btn:hover { opacity: 0.88; transform: translateY(-1px); }
-  .ra-hero__btn:active { transform: translateY(0); }
+  .gi-hero__btn:hover { opacity: 0.88; transform: translateY(-1px); }
+  .gi-hero__btn:active { transform: translateY(0); }
 
-  .ra-hero__btn--primary {
+  .gi-hero__btn--primary {
     background: linear-gradient(to bottom, #61dfff, #01c4f6);
     color: var(--inverted);
     box-shadow: inset 0 1px 0 rgba(255,255,255,0.5), inset 0 -1px 0 rgba(11,17,20,0.2);
   }
 
-  .ra-hero__btn--secondary {
+  .gi-hero__btn--secondary {
     background: rgba(255,255,255,0.1);
     color: var(--text);
     border: 1px solid rgba(255,255,255,0.1);
   }
 
-  .ra-hero__btn svg { flex-shrink: 0; }
+  .gi-hero__btn svg { flex-shrink: 0; }
 
   /* ─── Video Card ─── */
-  .ra-hero__video {
+  .gi-hero__video {
     flex: 0 0 42%;
-    min-width: 420px;
+    min-width: 0;
+    width: 42%;
     border-radius: var(--radius);
     overflow: hidden;
     border: 0.5px solid #757575;
@@ -148,32 +169,13 @@
     background: var(--inverted);
   }
 
-  .ra-hero__video-close {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    width: 28px;
-    height: 28px;
-    background: rgba(0,0,0,0.6);
-    border: none;
-    color: #fff;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 10;
-    line-height: 1;
-  }
-
   /* ─── Vimeo Embed ─── */
-  .ra-hero__vimeo-wrap {
+  .gi-hero__vimeo-wrap {
     padding: 56.25% 0 0 0;
     position: relative;
   }
 
-  .ra-hero__vimeo-wrap iframe {
+  .gi-hero__vimeo-wrap iframe {
     position: absolute;
     top: 0;
     left: 0;
@@ -183,11 +185,11 @@
     display: block;
   }
 
-  .ra-hero__video-meta {
+  .gi-hero__video-meta {
     padding: 16px 24px;
   }
 
-  .ra-hero__video-title {
+  .gi-hero__video-title {
     font-family: 'Inter', 'Open Sans', sans-serif;
     font-size: 20px;
     font-weight: 600;
@@ -196,7 +198,7 @@
     margin-bottom: 4px;
   }
 
-  .ra-hero__video-sub {
+  .gi-hero__video-sub {
     font-family: 'Inter', 'Open Sans', sans-serif;
     font-size: 14px;
     font-weight: 400;
@@ -205,88 +207,86 @@
   }
 
   /* ─── Responsive ─── */
-  @media (max-width: 1100px) {
-    .ra-hero { padding: 32px 40px; }
-    .ra-hero__inner { gap: 40px; }
-    .ra-hero__left { gap: 40px; }
-    .ra-hero__video { flex: 0 0 45%; min-width: 300px; }
+  @media (max-width: 1200px) {
+    .gi-hero { padding: 32px 40px; }
+    .gi-hero__inner { gap: 32px; }
+    .gi-hero__left { gap: 32px; }
+    .gi-hero__video { flex: 0 0 45%; width: 45%; }
+    .gi-hero__badge-col { width: 160px; }
+    .gi-hero__crest { width: 160px; }
   }
 
-  @media (max-width: 768px) {
-    .ra-hero { padding: 24px 20px; }
-    .ra-hero__inner { flex-direction: column; align-items: stretch; }
-    .ra-hero__left { flex-direction: column; align-items: center; text-align: center; gap: 24px; }
-    .ra-hero__text { align-items: center; }
-    .ra-hero__actions { justify-content: center; }
-    .ra-hero__video { flex: 1 1 100%; min-width: 0; max-width: 100%; }
-    .ra-hero__badge-col { width: 140px; }
-    .ra-hero__badge-img { width: 140px; }
+  @media (max-width: 900px) {
+    .gi-hero { padding: 24px 20px; }
+    .gi-hero__inner { flex-direction: column; align-items: stretch; }
+    .gi-hero__left { flex-direction: column; align-items: center; text-align: center; gap: 24px; }
+    .gi-hero__text { align-items: center; }
+    .gi-hero__actions { justify-content: center; }
+    .gi-hero__video { flex: 1 1 100%; width: 100%; max-width: 100%; }
+    .gi-hero__badge-col { width: 140px; }
+    .gi-hero__crest { width: 140px; }
   }
 </style>
 
-<div class="ra-hero">
-  <div class="ra-hero__inner">
+<div class="gi-hero">
+  <div class="gi-hero__inner">
 
     <!-- ── Left: Badge + Text ── -->
-    <div class="ra-hero__left">
+    <div class="gi-hero__left">
 
       <!-- Badge Column -->
-      <div class="ra-hero__badge-col">
-        <img class="ra-hero__badge-img"
-             alt="Revenue Academy"
-             src="../assets/RA header.png">
+      <div class="gi-hero__badge-col">
+        <div class="gi-hero__badge-pill">
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24" style="color:#ffffff">
+            <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/>
+          </svg>
+          FOUNDING MEMBER
+        </div>
+        <img class="gi-hero__crest"
+             alt="Growth Institute Badge"
+             src="../assets/growth-institute-badge_1.png">
       </div>
 
       <!-- Text Column -->
-      <div class="ra-hero__text">
-        <p class="ra-hero__label">TRAINING FOR MODERN GTM TEAMS</p>
-        <p class="ra-hero__subhead">Revenue Academy</p>
-        <h1 class="ra-hero__title">Welcome back!</h1>
+      <div class="gi-hero__text">
+        <p class="gi-hero__label">EXECUTIVE LEARNING &amp; RESEARCH</p>
+        <p class="gi-hero__subhead">Growth Institute Member Hub</p>
+        <h1 class="gi-hero__title">Welcome back!</h1>
 
-        <div class="ra-hero__actions">
-          <a href="#"
-   onclick="window.open('https://winningbydesign.docebosaas.com/learn/mycourses', '_blank'); return false;"
-   class="ra-hero__btn ra-hero__btn--primary">
-  <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-  Resume Learning
-</a>
-<a href="#"
-   onclick="window.open('https://winningbydesign.docebosaas.com/learn/my-calendar', '_blank'); return false;"
-   class="ra-hero__btn ra-hero__btn--secondary">
-  <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-  Upcoming Training
-</a>
+        <div class="gi-hero__actions">
+          <a href="https://winningbydesign.docebosaas.com/learn/mycourses" class="gi-hero__btn gi-hero__btn--primary">
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            Resume Learning
+          </a>
+          <a href="https://winningbydesign.docebosaas.com/learn/my-calendar" class="gi-hero__btn gi-hero__btn--secondary">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Upcoming Events
+          </a>
         </div>
       </div>
     </div>
 
     <!-- ── Right: Video Card ── -->
-    <div class="ra-hero__video" id="ra-video-card">
-      <button class="ra-hero__video-close"
-              aria-label="Close video"
-              onclick="document.getElementById('ra-video-card').style.display='none'">&times;</button>
+    <div class="gi-hero__video" id="gi-video-card">
 
       <!-- Vimeo Embed -->
-      <div class="ra-hero__vimeo-wrap">
+      <div class="gi-hero__vimeo-wrap">
         <iframe
-          src="https://player.vimeo.com/video/1177046144?badge=0&autopause=0&player_id=0&app_id=58479"
+          src="https://player.vimeo.com/video/1177046144?badge=0&autopause=0&player_id=0&app_id=58479&title=0&byline=0&portrait=0&pip=0"
           frameborder="0"
           allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
           referrerpolicy="strict-origin-when-cross-origin"
-          title="Revenue Academy Welcome Video">
+          title="Charter Member Video">
         </iframe>
       </div>
 
-      <div class="ra-hero__video-meta">
-        <p class="ra-hero__video-title">Welcome to the Revenue Academy</p>
-        <p class="ra-hero__video-sub">A message from Jacco &middot; 4 min</p>
+      <div class="gi-hero__video-meta">
+        <p class="gi-hero__video-title">Welcome to the Growth Institute</p>
+        <p class="gi-hero__video-sub">A message from Jacco &middot; 4 min</p>
       </div>
     </div>
 
   </div>
 </div>
-
-<script src="https://player.vimeo.com/api/player.js"></script>
-
 
 <script src="https://player.vimeo.com/api/player.js"></script>
